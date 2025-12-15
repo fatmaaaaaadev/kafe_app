@@ -54,7 +54,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
-  flutter_native_splash: ^2.4.7
+  
 
 
 # For information on the generic Dart part of this file, see the
@@ -74,8 +74,12 @@ flutter_native_splash:
   color: "#D9B7F9"
   image: assets/logo.png
   web: true 
-  
-
+  android_12:
+    image: assets/logo.png
+    color: "#D9B7F9"
+  fullscreen: true 
+  android: true
+  ios: true
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

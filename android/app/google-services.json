@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1028629178150",
+    "project_id": "kafee-2466b",
+    "storage_bucket": "kafee-2466b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028629178150:android:ef6ac857cf39eb0467c3e7",
+        "android_client_info": {
+          "package_name": "com.example.kafe_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH3wiTPR5Q4YjILpZBvgTR-qOtWScT_MI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

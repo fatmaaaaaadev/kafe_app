@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+<<<<<<< HEAD
 import 'screens/qr_generator_screen.dart';
+=======
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'screens/qr_scanner_screen.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
-void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
-    // await Firebase.initializeApp(
-      // options: DefaultFirebaseOptions.currentPlatform,
-   // );
+void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  FlutterNativeSplash.remove();
+>>>>>>> 2971c985ac102855629abbd5e2b99449c107cbea
+
   runApp(const MyApp());
 }
 
@@ -18,29 +26,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Kafe App',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const QRGeneratorScreen(),
     );
   }
-}
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -124,6 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+=======
+      debugShowCheckedModeBanner: false,
+>>>>>>> 2971c985ac102855629abbd5e2b99449c107cbea
     );
   }
 }

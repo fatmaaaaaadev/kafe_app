@@ -4,7 +4,7 @@ import 'firebase_options.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'screens/qr_scanner_screen.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-
+import 'package:kafe_app/screens/menu_screen.dart';
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -12,7 +12,7 @@ void main() async {
 
   FlutterNativeSplash.remove();
 
-  runApp(const MyApp());
+  runApp(const  MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,12 +22,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Kafe App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      
       ),
-      home: const QRGeneratorScreen(),
-      debugShowCheckedModeBanner: false,
+      home: const MenuScreen(),
+      
+      
+      
     );
   }
 }

@@ -68,15 +68,17 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/logo.png
+    - assets/yeni_logo.png
+    - assets/kahveland_logo2.png
 
 flutter_native_splash:
   color: "#D9B7F9"
-  image: assets/logo.png
+  image: assets/yeni_logo.png
   web: true 
   android_12:
-    image: assets/logo.png
+    image: assets/yeni_logo.png
     color: "#D9B7F9"
+    icon_background_color: "#D9B7F9"
   fullscreen: true 
   android: true
   ios: true

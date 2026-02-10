@@ -1,45 +1,43 @@
 import 'package:flutter/material.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> items;
+  // Burası çok önemli! Sepeti dışarıdan alacağımızı buraya tanımladık.
+  final List<Map<String, dynamic>> basket;
 
-  const CheckoutScreen({super.key, required this.items});
+  const CheckoutScreen({super.key, required this.basket});
 
   @override
   Widget build(BuildContext context) {
-    // Toplam fiyatı hesaplıyoruz
-    double total = items.fold(0, (sum, item) => sum + (item['price'] ?? 0));
+    // Sepetteki toplam fiyatı hesaplayalım
+    double total = basket.fold(0, (sum, item) => sum + (item['price'] ?? 0));
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hesap Özeti'),
         backgroundColor: Colors.orange,
       ),
-      body: items.isEmpty
+      body: basket.isEmpty
           ? const Center(child: Text('Sepetiniz boş!'))
           : Column(
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: items.length,
+                    itemCount: basket.length,
                     itemBuilder: (context, index) {
+                      final item = basket[index];
                       return ListTile(
-                        leading: const Icon(Icons.flatware),
-                        title: Text(items[index]['name'] ?? 'Ürün'),
-                        trailing: Text('${items[index]['price']} TL'),
+                        leading: const Icon(Icons.coffee),
+                        title: Text(item['name'] ?? 'Ürün'),
+                        subtitle: Text('${item['price']} TL'),
                       );
                     },
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  color: Colors.orange.shade100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text('TOPLAM TUTAR:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                      Text('${total.toStringAsFixed(2)} TL', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red)),
-                    ],
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    'Toplam Tutar: ${total.toStringAsFixed(2)} TL',
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
